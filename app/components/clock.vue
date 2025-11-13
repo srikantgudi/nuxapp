@@ -30,10 +30,11 @@ const props = defineProps({
 // Create a computed property to calculate the angles
 const handclr = computed(() => {
   let clr = '#333';
-  if (ztime.hour < 3) clr = '#333';
-  else if (ztime.hour < 6) clr = '#666';
-  else if (ztime.hour < 12) clr = 'blue';
-  else if (ztime.hour < 18) clr = 'seagreen';
+  const hr = props.ztime.hour;
+  if (hr < 3) clr = '#333';
+  else if (hr < 6) clr = '#666';
+  else if (hr < 12) clr = 'blue';
+  else if (hr < 18) clr = 'seagreen';
   else clr = 'navy';
 });
 
