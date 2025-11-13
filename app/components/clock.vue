@@ -1,17 +1,11 @@
 <template>
     <div class="vflex">
         <h2>Clock for :: {{zone}}</h2>
-        
-        <!-- Displaying the angles for hour and minute -->
-        <!-- <div>
-          Hour Angle: {{ ang.h }} | Minute Angle: {{ ang.m }}
-        </div> -->
-      
         <div>
           <svg viewBox="-50 -50 100 100" width="400">
               <circle r="49" fill="lightcyan" stroke="navy" stroke-width="0.5" />
-              <line class="hand" x1="-4" x2="32" stroke="navy" stroke-linecap="round" :transform="`rotate(${ang.h})`" />
-              <line class="hand" x1="-4" x2="42" stroke="navy" stroke-linecap="round" :transform="`rotate(${ang.m})`" />
+              <line class="hand" x1="-4" x2="32" :stroke="handclr" stroke-linecap="round" :transform="`rotate(${ang.h})`" />
+              <line class="hand" x1="-4" x2="42" :stroke="handclr" stroke-linecap="round" :transform="`rotate(${ang.m})`" />
           </svg>
         </div>
     </div>
@@ -34,6 +28,15 @@ const props = defineProps({
 });
 
 // Create a computed property to calculate the angles
+const handclr = computed(() => {
+  let clr = '#333';
+  if (ztime.hour < 3) clr = '#333';
+  else if (ztime.hour < 6) clr = '#666';
+  else if (ztime.hour < 12) clr = 'blue';
+  else if (ztime.hour < 18) clr = 'seagreen';
+  else clr = 'navy';
+});
+
 const ang = computed(() => {
   const ztime = props.ztime; // Get the ztime prop from the parent
   return {
