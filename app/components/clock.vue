@@ -36,6 +36,7 @@ const handclr = computed(() => {
   else if (hr < 12) clr = 'blue';
   else if (hr < 18) clr = 'seagreen';
   else clr = 'navy';
+  return clr;
 });
 
 const ang = computed(() => {
