@@ -62,8 +62,8 @@
   }
   .dflex {
     display: flex;
-    align-items: flex-start;
-    gap: 1rem
+    align-items: center;
+    gap: 1rem;
   }
   .vflex {
     display: flex;
@@ -76,5 +76,14 @@
   }
   .hand {
     transition: all 0.5s;
+  }
+  .mr-sm {
+    margin-right: 1rem;
+  }
+  .mr-md {
+    margin-right: 1.5rem;
+  }
+  .align-center {
+    align-items: center;
   }
 </style>

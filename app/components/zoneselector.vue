@@ -1,7 +1,7 @@
 <template>
   <div>
     {{selectlabel}}: 
-    <select id="zone" v-model="selectedZone">
+    <select id="zone" v-model="selectedZone" @change="hey ">
       <!-- <option value="">Local</option> -->
       <option v-for="z in zones" :key="z" :value="z">{{ z }}</option>
     </select>

@@ -12,7 +12,7 @@
 </template>
 
 <script setup>
-import { DateTime } from 'luxon';
+  import moment from 'moment-timezone';
 import { computed } from 'vue';
 
 // Define props with a default value (current time)
@@ -22,15 +22,14 @@ const props = defineProps({
         required: true
     },
     ztime: {
-        type: DateTime,
-        default: DateTime.now() // Default value is the current time
+      type: Object
     }
 });
 
 // Create a computed property to calculate the angles
 const handclr = computed(() => {
   let clr = '#333';
-  const hr = props.ztime.hour;
+  const hr = props.ztime.hour();
   if (hr < 3) clr = '#333';
   else if (hr < 6) clr = '#666';
   else if (hr < 12) clr = 'blue';
@@ -42,8 +41,8 @@ const handclr = computed(() => {
 const ang = computed(() => {
   const ztime = props.ztime; // Get the ztime prop from the parent
   return {
-    h: (ztime.hour * 30 + ztime.minute / 2) - 90,  // Hour hand angle (12-hour clock)
-    m: (ztime.minute * 6 + ztime.second / 10) - 90, // Minute hand angle
+    h: (ztime.hour() * 30 + ztime.minute() / 2) - 90,  // Hour hand angle (12-hour clock)
+    m: (ztime.minute() * 6 + ztime.second() / 10) - 90, // Minute hand angle
   };
 });
 </script>
