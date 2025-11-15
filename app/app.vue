@@ -1,13 +1,15 @@
 <template>
   <header>
     <nav>
-      <h1>NuxtJs Demo App</h1>
-      <a href="/">Home</a>
-      <a href="/posts">Posts</a>
-      <a href="/comments">Comments</a>
-      <a href="/zonetime">Zone-time</a>
-      <a href="/calendar">Calendar</a>
-      <a href="/about">About</a>
+      <div id="app-title">NuxtJs Demo App</div>
+      <div class="nav-links">
+        <a href="/">Home</a>
+        <a href="/posts">Posts</a>
+        <a href="/comments">Comments</a>
+        <a href="/zonetime">Zone-time</a>
+        <a href="/calendar">Calendar</a>
+        <a href="/about">About</a>
+      </div>
     </nav>
   </header>
   <main>
@@ -18,6 +20,17 @@
 <style>
   * {
     font-family: helvetica;
+  }
+  body {
+    margin: 1vh 5vw;
+  }
+  #app-title {
+    font-size: 3vw;
+  }
+  .nav-links {
+    display: flex;
+    font-size: large;
+    gap: 1rem;
   }
   nav {
     display: flex;
@@ -85,5 +98,36 @@
   }
   .align-center {
     align-items: center;
+  }
+  @media screen and (max-width:640px) {
+    td {padding:2%;}
+    nav {
+      display:flex;
+      flex-wrap: wrap;
+      font-size: 90%;
+      margin:0;
+    }
+    #app-title {font-size: 3vw;}
+    .nav-links {
+      position: absolute;
+      top:0;
+      height: 24px;
+      overflow-y: auto;
+      right: 1rem;
+      flex-direction: column;
+      font-size: medium;
+      gap: 1rem;
+      color: #666;
+    }
+    .nav-links a {color:inherit;}
+    .nav-links:hover {
+      background-color: #999;
+      padding: 0.5rem;
+      z-index: 400;
+      height: auto;
+    }
+    .nav-links:hover > a {
+      color:whitesmoke;
+    }
   }
 </style>

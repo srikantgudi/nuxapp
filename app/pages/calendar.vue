@@ -40,15 +40,15 @@
         <div class="dflex"><strong>{{curdt.format("MMMM YYYY")}}</strong> &raquo; <button @click="curdt=moment()">Today</button></div>
     </div>
     <div style="line-height: 2;">
-        <div style="margin:1vh auto;display: grid;grid-template-columns: repeat(15,1fr);gap:1rem;">
-            <label>Select year:</label>
+        <label>Select year:</label>
+        <div style="margin:1vh auto;display: flex;flex-wrap:wrap;gap:1rem;">
             <button @click="setstartyear(-20)">&laquo;</button>
             <button @click="setstartyear(-10)">&lsaquo;</button>
             <button @click="setyear(y)" v-for="y in years">{{y}}</button>
             <button @click="setstartyear(10)">&rsaquo;</button>
             <button @click="setstartyear(20)">&raquo;</button>
         </div>
-        <div style="margin:1vh auto;display: grid;grid-template-columns: repeat(12,1fr);gap:1rem;">
+        <div style="margin:1vh auto;display:flex;flex-wrap: wrap;gap:1rem;">
             <button v-for="(mo,idx) in moment.months()" @click="setmonth(idx)">{{mo}}</button>
         </div>
         <div style="display: grid;grid-template-columns: repeat(7,1fr);gap:1rem;">
