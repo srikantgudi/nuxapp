@@ -26,7 +26,7 @@
         <div class="dflex">
             <ZonetimeSelector selectlabel="Select Zone-1" v-model:zone="zone1" /> 
             <div>{{zone1}}</div>
-            <div>{{zone1time.format("EEE dd-MMM HH:mm:ss a")}}</div>
+            <div>{{zone1time.format("eee dd-MMM HH:mm:ss a")}}</div>
             <label for="inputtime">
                 Select custom time:
                 <input type="datetime-local" v-model="inputtime" id="inputtime">
