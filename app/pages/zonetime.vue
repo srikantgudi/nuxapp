@@ -35,7 +35,7 @@
         <div class="dflex">
             <ZonetimeSelector selectlabel="Select Zone-2" v-model:zone="zone2" />
             <div>{{zone2}}</div>
-            <div>{{zone2time.format("EEE dd-MMM HH:mm:ss a")}}</div>
+            <div>{{zone2time.format("ddd DD-MMM HH:mm:ss a")}}</div>
         </div>
     </div>
     <div class="dflex">
